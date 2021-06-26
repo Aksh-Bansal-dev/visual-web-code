@@ -9,9 +9,15 @@ const useStyles = makeStyles(() =>
   createStyles({
     label: {
       color: "white",
+      margin: "0 2vh",
     },
     uploadBtn: {
       padding: "0 1vh",
+      marginRight: "2vh",
+    },
+    error: {
+      color: "pink",
+      margin: "0 1vh",
     },
   }),
 );
@@ -97,17 +103,18 @@ const FileUpload: React.FC = () => {
         alignItems: "center",
       }}
     >
+      <span className={classes.label}>Select File/Image</span>
       <input
         name="foo"
         onChange={(e) => handleUpload(e)}
         id="file-input"
         type="file"
       />
-      <SelectLang />
-      <span style={{ color: "maroon", marginRight: "2vh" }}>{error}</span>
+      <span className={classes.error}>{error}</span>
       <button className={classes.uploadBtn} disabled={loading} type="submit">
         Upload
       </button>
+      <SelectLang />
     </form>
   );
 };

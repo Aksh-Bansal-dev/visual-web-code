@@ -34,6 +34,16 @@ const Editor: React.FC = () => {
   const options = {
     selectOnLineNumbers: true,
   };
+  React.useEffect(() => {
+    const timer = setInterval(function () {
+      localStorage.setItem("vw-code", code);
+      localStorage.setItem("vw-lang", lang);
+      console.log("Saving...");
+    }, 30 * 1000);
+
+    return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className={classes.root}>
       <MonacoEditor
