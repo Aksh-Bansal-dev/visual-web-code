@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "white",
       margin: "0 1vh 0 1vh",
     },
-  })
+  }),
 );
 
 export default function SelectLang() {
@@ -28,11 +28,13 @@ export default function SelectLang() {
       <select value={lang} onChange={handleChange}>
         <option value={"js"}>Javascript</option>
         <option value={"ts"}>Typescript</option>
+        <option value={"json"}>JSON</option>
         <option value={"html"}>HTML</option>
         <option value={"css"}>CSS</option>
         <option value={"java"}>Java</option>
         <option value={"py"}>Python</option>
         <option value={"cpp"}>C++</option>
+        <option value={"rs"}>Rust</option>
       </select>
     </div>
   );

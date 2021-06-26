@@ -6,6 +6,15 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      backgroundColor: "#c5d3e8",
+    },
+  }),
+);
+
 interface DownloadModalInterface {
   open: boolean;
   close: () => void;
@@ -19,6 +28,7 @@ const DownloadModal: React.FC<DownloadModalInterface> = ({
   content,
   lang,
 }) => {
+  const classes = useStyles();
   const [filename, setFilename] = useState(() => {
     const name = "code" + Math.floor(Math.random() * 1000 + 1) + "." + lang;
     return name;
@@ -44,27 +54,29 @@ const DownloadModal: React.FC<DownloadModalInterface> = ({
   };
   return (
     <Dialog open={open} onClose={close}>
-      <DialogTitle>{filename}</DialogTitle>
-      <DialogContent>
-        <TextField
-          value={filename}
-          onChange={(e) => setFilename(e.target.value)}
-          autoFocus
-          margin="dense"
-          id="file-name"
-          label="File name"
-          type="text"
-          fullWidth
-        />
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={close} color="primary">
-          Cancel
-        </Button>
-        <Button onClick={handleDownload} color="primary">
-          Download
-        </Button>
-      </DialogActions>
+      <div className={classes.root}>
+        <DialogTitle>{filename}</DialogTitle>
+        <DialogContent>
+          <TextField
+            value={filename}
+            onChange={(e) => setFilename(e.target.value)}
+            autoFocus
+            margin="dense"
+            id="file-name"
+            label="File name"
+            type="text"
+            fullWidth
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={close} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleDownload} color="primary">
+            Download
+          </Button>
+        </DialogActions>
+      </div>
     </Dialog>
   );
 };

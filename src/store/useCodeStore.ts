@@ -1,4 +1,5 @@
 import create from "zustand";
+import { getCode, getLang } from "../utils/localStorageHelper";
 
 interface CodeInterface {
   code: string;
@@ -8,8 +9,8 @@ interface CodeInterface {
 }
 
 const useCodeStore = create<CodeInterface>((set) => ({
-  code: "// Code here",
-  lang: "js",
+  code: getCode(),
+  lang: getLang(),
   setCode: (newCode) => set(() => ({ code: newCode })),
   setLang: (lang) => set(() => ({ lang })),
 }));

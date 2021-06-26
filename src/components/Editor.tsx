@@ -4,7 +4,7 @@ import useCodeStore from "../store/useCodeStore";
 
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { IconButton } from "@material-ui/core";
-import { Save } from "@material-ui/icons";
+import { GetApp } from "@material-ui/icons";
 import langMap from "../utils/languages";
 import DownloadModal from "./DownloadModal";
 
@@ -36,12 +36,13 @@ const Editor: React.FC = () => {
   };
   React.useEffect(() => {
     const timer = setInterval(function () {
+      console.log("Saving...");
       localStorage.setItem("vw-code", code);
       localStorage.setItem("vw-lang", lang);
-      console.log("Saving...");
     }, 30 * 1000);
 
     return () => clearInterval(timer);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -59,7 +60,7 @@ const Editor: React.FC = () => {
         className={classes.floatBtn}
         onClick={() => setDownloadOpen(true)}
       >
-        <Save color="inherit" />
+        <GetApp color="inherit" />
       </IconButton>
       <DownloadModal
         open={downloadOpen}

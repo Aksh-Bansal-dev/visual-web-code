@@ -13,8 +13,9 @@ module.exports = function override(config, env) {
         "cpp",
         "html",
         "css",
+        "rust",
       ],
-    })
+    }),
   );
   return config;
 };
