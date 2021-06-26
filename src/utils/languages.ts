@@ -1,4 +1,5 @@
 const langMap: Map<string, string> = new Map();
+export const versionMap: Map<string, string> = new Map();
 export const langArr = [
   "abap",
   "apex",
@@ -82,5 +83,12 @@ langMap.set("java", "java");
 langMap.set("cpp", "c++");
 langMap.set("css", "css");
 langMap.set("html", "html");
+
+versionMap.set("js", "15.10");
+versionMap.set("rs", "1.5");
+versionMap.set("ts", "4.2");
+versionMap.set("py", "3.9");
+versionMap.set("java", "15");
+versionMap.set("cpp", "10");
 
 export default langMap;
