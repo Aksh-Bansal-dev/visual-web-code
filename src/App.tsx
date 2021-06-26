@@ -9,14 +9,15 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       height: "100vh",
-      backgroundColor: "#7d7d7d",
+      // backgroundColor: "#7d7d7d",
+      backgroundColor: "#3a404d",
     },
   }),
 );
 
 interface AppProps {}
 
-const App: React.FC = ({}: AppProps) => {
+const App: React.FC<AppProps> = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>

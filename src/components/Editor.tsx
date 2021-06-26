@@ -6,12 +6,13 @@ import { makeStyles, createStyles } from "@material-ui/core/styles";
 import { IconButton } from "@material-ui/core";
 import { Save } from "@material-ui/icons";
 import langMap from "../utils/languages";
+import DownloadModal from "./DownloadModal";
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
       width: "100vw",
-      height: "90vh",
+      height: "95vh",
     },
     floatBtn: {
       position: "fixed",
@@ -21,50 +22,41 @@ const useStyles = makeStyles(() =>
       color: "white",
       background: "rgba(250, 250, 250, 0.3)",
     },
-  })
+  }),
 );
 
 const Editor: React.FC = () => {
   const classes = useStyles();
+  const [downloadOpen, setDownloadOpen] = React.useState(false);
   const code = useCodeStore((state) => state.code);
   const lang = useCodeStore((state) => state.lang);
   const setCode = useCodeStore((state) => state.setCode);
   const options = {
     selectOnLineNumbers: true,
   };
-  function download(filename: string, text: string) {
-    const element = document.createElement("a");
-    element.setAttribute(
-      "href",
-      "data:text/plain;charset=utf-8," + encodeURIComponent(text)
-    );
-    element.setAttribute("download", filename);
-
-    element.style.display = "none";
-    document.body.appendChild(element);
-
-    element.click();
-
-    document.body.removeChild(element);
-  }
-  const handleDownload = () => {
-    const name = "code" + Math.floor(Math.random() * 1000 + 1) + "." + lang;
-    download(name, code);
-  };
   return (
     <div className={classes.root}>
       <MonacoEditor
         width="100vw"
-        height="100%"
+        height="95vh"
         language={langMap.get(lang)}
         theme="vs-dark"
         value={code}
         options={options}
         onChange={(e) => setCode(e)}
       />
-      <IconButton className={classes.floatBtn} onClick={handleDownload}>
+      <IconButton
+        className={classes.floatBtn}
+        onClick={() => setDownloadOpen(true)}
+      >
         <Save color="inherit" />
       </IconButton>
+      <DownloadModal
+        open={downloadOpen}
+        content={code}
+        lang={lang}
+        close={() => setDownloadOpen(false)}
+      />
     </div>
   );
 };

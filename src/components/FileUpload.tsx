@@ -3,6 +3,19 @@ import useCodeStore from "../store/useCodeStore";
 import { createWorker } from "tesseract.js";
 import SelectLang from "./SelectLang";
 
+import { makeStyles, createStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    label: {
+      color: "white",
+    },
+    uploadBtn: {
+      padding: "0 1vh",
+    },
+  }),
+);
+
 const getLang = (name: string) => {
   const extenstions = name.split(".");
   const len = extenstions.length;
@@ -14,6 +27,7 @@ const getLang = (name: string) => {
 };
 
 const FileUpload: React.FC = () => {
+  const classes = useStyles();
   const setCode = useCodeStore((state) => state.setCode);
   const setLang = useCodeStore((state) => state.setLang);
   const [file, setFile] = useState<File | null>(null);
@@ -73,11 +87,12 @@ const FileUpload: React.FC = () => {
 
   return (
     <form
+      className={classes.label}
       autoComplete="off"
       onSubmit={(e) => handleSubmit(e)}
       style={{
         display: "flex",
-        height: "10vh",
+        height: "5vh",
         justifyContent: "center",
         alignItems: "center",
       }}
@@ -90,7 +105,7 @@ const FileUpload: React.FC = () => {
       />
       <SelectLang />
       <span style={{ color: "maroon", marginRight: "2vh" }}>{error}</span>
-      <button disabled={loading} type="submit">
+      <button className={classes.uploadBtn} disabled={loading} type="submit">
         Upload
       </button>
     </form>
