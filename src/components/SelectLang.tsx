@@ -35,6 +35,7 @@ export default function SelectLang() {
         <option value={"py"}>Python</option>
         <option value={"cpp"}>C++</option>
         <option value={"rs"}>Rust</option>
+        <option value={"txt"}>Plain text</option>
       </select>
     </div>
   );

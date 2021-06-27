@@ -83,6 +83,7 @@ langMap.set("java", "java");
 langMap.set("cpp", "c++");
 langMap.set("css", "css");
 langMap.set("html", "html");
+langMap.set("txt", "");
 
 versionMap.set("js", "15.10");
 versionMap.set("rs", "1.5");
