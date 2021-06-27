@@ -24,10 +24,10 @@
     "zustand": "^3.5.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "start:wp": "react-app-rewired start",
-    "build:wp": "react-app-rewired build",
+    "start:no": "react-scripts start",
+    "build:no": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
