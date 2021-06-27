@@ -24,8 +24,7 @@ const useStyles = makeStyles(() =>
     inputBtn: {
       background: "none",
       border: "1px solid white",
-      padding: "1px 1vh",
-      height: "3vh",
+      padding: "4px 1vh",
       borderRadius: "4px",
       fontSize: "0.9rem",
       cursor: "pointer",
