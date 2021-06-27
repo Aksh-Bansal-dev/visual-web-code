@@ -39,6 +39,9 @@ const DownloadModal: React.FC<DownloadModalInterface> = ({
     const name = "code" + Math.floor(Math.random() * 1000 + 1) + "." + lang;
     return name;
   });
+  React.useEffect(() => {
+    setFilename("code" + Math.floor(Math.random() * 1000 + 1) + "." + lang);
+  }, [lang]);
   function download(filename: string, text: string) {
     const element = document.createElement("a");
     element.setAttribute(
