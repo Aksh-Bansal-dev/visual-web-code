@@ -2,7 +2,7 @@
 
 Feature rich code editor in your browser. Just upload your file or an image of code and start coding. 
 
-Checkout website [here](https://visualwebcode.netlify.app/)
+Checkout the website [here](https://visualwebcode.netlify.app/).
 <br/>
 <br/>
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c70ceff4-55aa-47e6-9849-68e883233d50/deploy-status)](https://app.netlify.com/sites/visualwebcode/deploys)
