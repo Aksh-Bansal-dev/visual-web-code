@@ -10,7 +10,13 @@ import { makeStyles, createStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      backgroundColor: "#c5d3e8",
+      backgroundColor: "#2e2e2e",
+      color: "white",
+    },
+    other: {
+      color: "white",
+      background: "#cccccc",
+      border: "none",
     },
   }),
 );
@@ -55,24 +61,24 @@ const DownloadModal: React.FC<DownloadModalInterface> = ({
   return (
     <Dialog open={open} onClose={close}>
       <div className={classes.root}>
-        <DialogTitle>{filename}</DialogTitle>
+        <DialogTitle>File Name</DialogTitle>
         <DialogContent>
           <TextField
+            className={classes.other}
             value={filename}
             onChange={(e) => setFilename(e.target.value)}
             autoFocus
             margin="dense"
             id="file-name"
-            label="File name"
             type="text"
             fullWidth
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={close} color="primary">
+          <Button onClick={close} color="inherit">
             Cancel
           </Button>
-          <Button onClick={handleDownload} color="primary">
+          <Button onClick={handleDownload} color="inherit">
             Download
           </Button>
         </DialogActions>

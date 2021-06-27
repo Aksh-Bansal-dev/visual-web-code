@@ -10,7 +10,14 @@ import { versionMap } from "../utils/languages";
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      backgroundColor: "#c5d3e8",
+      backgroundColor: "#2e2e2e",
+      color: "white",
+    },
+    box: {
+      width: "50vh",
+      height: "13vh",
+      resize: "none",
+      background: "#cccccc",
     },
   }),
 );
@@ -75,6 +82,7 @@ const CodeRunner: React.FC<CodeRunnerInterface> = ({
         <DialogContent>
           <div>Input</div>
           <textarea
+            className={classes.box}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             autoFocus
@@ -84,7 +92,7 @@ const CodeRunner: React.FC<CodeRunnerInterface> = ({
           {output !== "" ? (
             <>
               <div>Output</div>
-              <textarea value={output} disabled />
+              <textarea className={classes.box} value={output} disabled />
             </>
           ) : (
             ""
@@ -94,10 +102,10 @@ const CodeRunner: React.FC<CodeRunnerInterface> = ({
           ) : null}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="inherit">
             Cancel
           </Button>
-          <Button disabled={loading} onClick={handleRun} color="primary">
+          <Button disabled={loading} onClick={handleRun} color="inherit">
             Run
           </Button>
         </DialogActions>
