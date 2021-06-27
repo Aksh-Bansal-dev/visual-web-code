@@ -55,13 +55,14 @@ const CodeRunner: React.FC<CodeRunnerInterface> = ({
       body: JSON.stringify(body),
     });
     const data = await res.json();
-    console.log(data);
     if (data.run) {
       setOutput(data.run.output);
     } else {
       setOutput(data.message);
     }
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 10 * 1000);
   };
   const handleClose = () => {
     setOutput("");
@@ -88,6 +89,9 @@ const CodeRunner: React.FC<CodeRunnerInterface> = ({
           ) : (
             ""
           )}
+          {loading ? (
+            <div>Please wait few seconds before another request</div>
+          ) : null}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
