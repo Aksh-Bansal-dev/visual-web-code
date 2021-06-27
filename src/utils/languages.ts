@@ -80,7 +80,7 @@ langMap.set("ts", "typescript");
 langMap.set("py", "python");
 langMap.set("json", "json");
 langMap.set("java", "java");
-langMap.set("cpp", "c++");
+langMap.set("cpp", "cpp");
 langMap.set("css", "css");
 langMap.set("html", "html");
 langMap.set("txt", "");
