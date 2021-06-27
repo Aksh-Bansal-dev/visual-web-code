@@ -9,7 +9,8 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       height: "100vh",
-      backgroundColor: "#3a404d",
+      // backgroundColor: "#3a404d",
+      backgroundColor: "#2e2e2e",
     },
   }),
 );

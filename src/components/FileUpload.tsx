@@ -4,6 +4,7 @@ import { createWorker } from "tesseract.js";
 import SelectLang from "./SelectLang";
 
 import { makeStyles, createStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -13,11 +14,21 @@ const useStyles = makeStyles(() =>
     },
     uploadBtn: {
       padding: "0 1vh",
-      marginRight: "2vh",
+      margin: "0 2vh",
+      fontSize: "0.8rem",
     },
     error: {
       color: "pink",
       margin: "0 1vh",
+    },
+    inputBtn: {
+      background: "none",
+      border: "1px solid white",
+      padding: "1px 1vh",
+      height: "3vh",
+      borderRadius: "4px",
+      fontSize: "0.9rem",
+      cursor: "pointer",
     },
   }),
 );
@@ -103,17 +114,27 @@ const FileUpload: React.FC = () => {
         alignItems: "center",
       }}
     >
-      <span className={classes.label}>Select File/Image</span>
-      <input
-        name="foo"
-        onChange={(e) => handleUpload(e)}
-        id="file-input"
-        type="file"
-      />
+      {/* <span className={classes.label}>Select File/Image</span> */}
+      <label className={classes.inputBtn}>
+        {file ? file.name : "Select File/Image"}
+        <input
+          style={{ display: "none" }}
+          name="foo"
+          onChange={(e) => handleUpload(e)}
+          id="file-input"
+          type="file"
+        />
+      </label>
       <span className={classes.error}>{error}</span>
-      <button className={classes.uploadBtn} disabled={loading} type="submit">
+      <Button
+        variant="outlined"
+        color="inherit"
+        className={classes.uploadBtn}
+        disabled={loading}
+        type="submit"
+      >
         Upload
-      </button>
+      </Button>
       <SelectLang />
     </form>
   );

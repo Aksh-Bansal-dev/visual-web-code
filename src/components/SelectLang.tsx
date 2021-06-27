@@ -1,18 +1,7 @@
 import React from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import useCodeStore from "../store/useCodeStore";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    label: {
-      color: "white",
-      margin: "0 1vh 0 1vh",
-    },
-  }),
-);
-
 export default function SelectLang() {
-  const classes = useStyles();
   const lang = useCodeStore((state) => state.lang);
   const setLang = useCodeStore((state) => state.setLang);
 
@@ -21,10 +10,7 @@ export default function SelectLang() {
   };
 
   return (
-    <div>
-      <span className={classes.label} id="lang-input">
-        Language
-      </span>
+    <div className="select-dropdown">
       <select value={lang} onChange={handleChange}>
         <option value={"js"}>Javascript</option>
         <option value={"ts"}>Typescript</option>
