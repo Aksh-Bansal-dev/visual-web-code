@@ -14,5 +14,6 @@ Checkout the website [here](https://visualwebcode.netlify.app/).
 - Auto save code in browser.
 
 ## Technologies used
-- Monaco editor
-- Web assembly to extract text from image
+- [Monaco editor](https://github.com/react-monaco-editor/react-monaco-editor)
+- Web assembly to extract text from image ([tesseract.js](https://github.com/naptha/tesseract.js))
+- [API](https://github.com/engineer-man/piston) to run code 
